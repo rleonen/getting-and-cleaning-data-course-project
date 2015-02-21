@@ -1,6 +1,38 @@
-list of columns for the 'msObsvData' data frame created by run_analysis.R script
+#Code book for data and processes used in run_analysis.R script.
 
-- tBodyAcc-mean()-X
+###The run_analysis.R script aggregates and merges data from the following files:
+- activity_labels.txt
+- features.txt
+- subject_train.txt
+- subject_test.txt
+- x_train.txt
+- x_test.txt
+- y_train.txt
+- y_test.txt
+
+###The msObsvData and msObsvDataMeans data frames are created through the following steps.
+- get the activity names from the activity_labels.txt file 
+- get the feature (column) names for the variable measurements from the features.txt file. 
+- read the subject_train.txt and subject_test.txt files into data frames subjectTrn and subjectTst, respectively.
+- create subjectData data frame by appending subjectTst to subjectTrn
+- rename column(s) of subjectData data frame to descriptive 'subjectNum' name.
+- read the y_train.txt and y_test.txt files into data frames activityTrn and activityTst, respectively.
+- create activityData data frame by appending activityTst to activityTrn
+- rename activityData column name to descriptive 'activityNum' name.
+- read the x_train.txt and x_test.txt files into obsvTrn and obsvTst data frames, respectively.
+- create the obsvData data frame by appending obsvTst to obsvTrn
+- rename columns in the obsvData data frame to correspond to featureName variables in features data frame.
+- create the msObsvData data frame by extracting only the columns with the strings 'mean' or 'std' in the column name.
+- the columns in subjectData and activityData are then bound to the msObsvData data frame using the cbind() function.
+- activity labels are then added to the msObsvData frame by merging the activityLabels and msObsvData data frames on the activityNum column.
+- the activityNum column is then dropped from the msObsvData data frame, resulting in the finished msObsvData data frame.
+- the msObsvDataMeans data frame is created by grouping the msObsvData data frame along the activityDesc and subjectNum columns and then calculating the means by group for the remaining columns.
+
+###list of columns for the 'msObsvData' data frame created by run_analysis.R script
+
+- activityDesc: Description of activity
+- subjectNumber: Subject ID number
+- tBodyAcc-mean()-X: 
 - tBodyAcc-mean()-Y               
 - tBodyAcc-mean()-Z               
 - tBodyAcc-std()-X               
@@ -79,3 +111,17 @@ list of columns for the 'msObsvData' data frame created by run_analysis.R script
 - fBodyBodyGyroJerkMag-mean()     
 - fBodyBodyGyroJerkMag-std()      
 - fBodyBodyGyroJerkMag-meanFreq()
+
+The variables for this data frame come from the accelerometer and gyroscope
+3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals 
+(prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
+Then they were filtered using a median filter and a 3rd order low pass Butterworth 
+filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration 
+signal was then separated into body and gravity acceleration signals 
+(tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter 
+with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in 
+time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also 
+the magnitude of these three-dimensional signals were calculated using the 
+Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
