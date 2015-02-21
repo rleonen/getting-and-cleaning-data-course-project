@@ -1,6 +1,6 @@
 list of columns for the 'msObsvData' data frame created by run_analysis.R script
 
-tBodyAcc-mean()-X
+-tBodyAcc-mean()-X
 tBodyAcc-mean()-Y               
 tBodyAcc-mean()-Z               
 tBodyAcc-std()-X               
