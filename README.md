@@ -1,5 +1,5 @@
 ##Coursera: Getting and Cleaning Data Course Project
-The codebook.md file contains the procedure by which the run_analysis.R script creates the msObsvData and msObsvDataMeans data frames required for this project. 
+The CodeBook.md file contains the procedure by which the run_analysis.R script creates the msObsvData and msObsvDataMeans data frames required for this project. 
 
 The msObsvData data frame consists of the merged training and test data sets from the getdata_projecfiles_UCIHARDataset.zip file. 
 
