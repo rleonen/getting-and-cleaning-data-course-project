@@ -1,7 +1,7 @@
 ##Coursera: Getting and Cleaning Data Course Project
 The CodeBook.md file contains the procedure by which the run_analysis.R script creates the msObsvData and msObsvDataMeans data frames required for this project. 
 
-The msObsvData data frame consists of the merged training and test data sets from the getdata_projecfiles_UCIHARDataset.zip file. 
+The msObsvData data frame consists of the merged training and test data sets from the [getdata_projecfiles_UCIHARDataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) file. 
 
 The msObsvDataMeans data frame is the filtered msObsvData data frame and contains only the columns with 'mean' or 'std' as part of the column name. These columns are then grouped by activityDesc and subjectNum columns and means are calculated for each grouping.
 
